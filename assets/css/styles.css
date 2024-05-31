@@ -1,0 +1,43 @@
+@import "./_css_reset.css";
+@import "./_mixins.css";
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --color-primary: hsl(172, 67%, 45%);
+  --color-primary-very-dark: hsl(183, 100%, 15%);
+  --color-primary-dark-grayish: hsl(186, 14%, 43%);
+  --color-primary-grayish-cyan: hsl(184, 14%, 56%);
+  --color-primary-light-grayish: hsl(185, 41%, 84%);
+  --color-primary-very-light-grayish: hsl(189, 41%, 97%);
+  --font-size: 16px;
+  --font-family: "Space Mono", monospace;
+  --font-weight: 700;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  color: var(--color-primary-very-dark);
+  background-color: var(--color-primary-very-light-grayish);
+}
+
+main {
+  width: 100%;
+}
+
+.attribution {
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
+  padding: 1rem 0;
+  & a {
+    color: hsl(228, 45%, 44%);
+  }
+}
