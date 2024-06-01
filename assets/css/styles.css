@@ -4,9 +4,10 @@
 :root {
   --white: hsl(0, 0%, 100%);
   --color-primary: hsl(172, 67%, 45%);
+  --color-primary-light: #9fe8df;
   --color-primary-very-dark: hsl(183, 100%, 15%);
   --color-primary-dark-grayish: hsl(186, 14%, 43%);
-  --color-primary-grayish-cyan: hsl(184, 14%, 56%);
+  --color-primary-grayish: hsl(184, 14%, 56%);
   --color-primary-light-grayish: hsl(185, 41%, 84%);
   --color-primary-very-light-grayish: hsl(189, 41%, 97%);
   --font-size: 16px;
@@ -25,11 +26,80 @@ body {
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   color: var(--color-primary-very-dark);
-  background-color: var(--color-primary-very-light-grayish);
+  background-color: var(--color-primary-light-grayish);
 }
 
 main {
   width: 100%;
+}
+
+.container {
+  width: 375px;
+  margin: 0 auto;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: var(--white);
+  padding: 32px;
+}
+
+label {
+  font-size: 16px;
+  color: var(--color-primary-dark-grayish);
+}
+
+input[type="number"] {
+  width: 100%;
+  height: 48px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-primary-very-light-grayish);
+  padding: 0 18px;
+  text-align: right;
+  font-size: 24px;
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  -moz-appearance: textfield;
+
+  &:focus {
+    outline: 2px solid var(--color-primary);
+  }
+}
+
+button {
+  width: 146px;
+  height: 48px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--color-primary-very-dark);
+  color: var(--white);
+  font-size: 24px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-very-dark);
+  }
+  &.active {
+    background-color: var(--color-primary);
+    color: var(--color-primary-very-dark);
+  }
+  &.secondary-btn {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-primary-very-dark);
+    font-size: 20px;
+    text-transform: uppercase;
+    &:hover,
+    &:focus {
+      background-color: var(--color-primary-light);
+    }
+  }
 }
 
 .attribution {
