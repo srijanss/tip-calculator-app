@@ -33,13 +33,26 @@
         />
       </header>
       <div class="container">
-        <form action="#" class="form card__tip-calculator" novalidate>
+        <form
+          action="/calculate-tip/"
+          name="tip-calculator"
+          class="form card__tip-calculator"
+          novalidate
+        >
           <div class="form__group form__group__bill-amount">
             <label for="id_bill_amount">
               <span class="label-text"> Bill </span>
               <span class="error-text"> </span>
             </label>
-            <input type="number" id="id_bill_amount" placeholder="0" required />
+            <input
+              type="number"
+              name="bill-amount"
+              id="id_bill_amount"
+              placeholder="0"
+              min="0.01"
+              max="999999"
+              required
+            />
             <img
               src="./assets/images/icon-dollar.svg"
               alt="Dollar icon"
@@ -52,28 +65,34 @@
               <span class="label-text"> Select Tip % </span>
               <span class="error-text"> </span>
             </label>
-            <div class="tip__percentage">
-              <button class="tip__button" data-tip="5">5%</button>
-              <button class="tip__button" data-tip="10">10%</button>
-              <button class="tip__button" data-tip="15">15%</button>
-              <button class="tip__button" data-tip="25">25%</button>
-              <button class="tip__button" data-tip="50">50%</button>
+            <div class="tip-percentage">
+              <button class="tip-button" data-tip="5">5%</button>
+              <button class="tip-button" data-tip="10">10%</button>
+              <button class="tip-button" data-tip="15">15%</button>
+              <button class="tip-button" data-tip="25">25%</button>
+              <button class="tip-button" data-tip="50">50%</button>
               <input
                 type="number"
                 id="id_tip_percentage"
                 placeholder="Custom"
+                name="custom-tip"
+                min="0.01"
+                max="100"
               />
             </div>
           </div>
           <div class="form__group form__group__number-of-people">
             <label for="id_number_of_people">
               <span class="label-text"> Number of People </span>
-              <span class="error-text active">Can't be zero</span>
+              <span class="error-text"></span>
             </label>
             <input
               type="number"
               id="id_number_of_people"
               placeholder="0"
+              name="number-of-people"
+              min="1"
+              max="99999"
               required
             />
             <img
@@ -84,8 +103,11 @@
             />
           </div>
         </form>
-        <div class="tip__result">
-          <table>
+        <div class="tip-result">
+          <table class="tip-result__table">
+            <caption>
+              Tip Calculation Results
+            </caption>
             <thead>
               <tr>
                 <th scope="col">Amount label</th>
@@ -110,7 +132,7 @@
             </tbody>
           </table>
 
-          <button class="tip__result__reset-btn" disabled>Reset</button>
+          <button class="tip-result__reset-btn" disabled>Reset</button>
         </div>
       </div>
     </main>

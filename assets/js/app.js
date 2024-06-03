@@ -1,1 +1,3 @@
-console.log("Hello from app.js!");
+import TipCalculator from "./_tip_calculator";
+
+new TipCalculator();

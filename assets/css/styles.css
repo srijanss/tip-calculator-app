@@ -57,7 +57,7 @@ input[type="number"] {
   @mixin remove-number-input-arrows;
 
   &:focus {
-    outline: 2px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
   }
 
   &.error {
@@ -127,7 +127,9 @@ header {
 
       & .error-text {
         display: none;
-        &.active {
+        &.active,
+        &.active:focus {
+          display: block;
           color: var(--color-error);
         }
       }
@@ -141,7 +143,7 @@ header {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      & .tip__percentage {
+      & .tip-percentage {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -166,7 +168,7 @@ header {
         }
         @mixin media-query-desktop {
           width: 117px;
-          padding: 0 14px;
+          padding: 0 12px;
         }
       }
     }
@@ -181,7 +183,7 @@ header {
     }
   }
 
-  & .tip__result {
+  & .tip-result {
     border-radius: 15px;
     background-color: var(--color-primary-very-dark);
     color: var(--white);
@@ -190,6 +192,7 @@ header {
     & table {
       width: 100%;
       margin-top: 16px;
+      & caption,
       & thead {
         display: none;
       }
