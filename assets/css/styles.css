@@ -93,6 +93,10 @@ header {
   display: flex;
   justify-content: center;
   padding: 50px 0 40px;
+
+  @mixin media-query-desktop {
+    padding: 163px 0 88px;
+  }
 }
 
 .container {
@@ -130,7 +134,7 @@ header {
     }
 
     & label:not(.form__group__tip-percentage > label) {
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     & .form__group__tip-percentage {
@@ -142,16 +146,38 @@ header {
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 16px;
+        @mixin media-query-desktop {
+          justify-content: stretch;
+          gap: 14px;
+        }
       }
 
-      & button,
+      & button {
+        width: 146px;
+        @mixin media-query-desktop {
+          width: 117px;
+        }
+      }
       & input[type="number"] {
         width: 146px;
+        &::placeholder {
+          color: var(--color-primary-dark-grayish);
+          opacity: 1;
+        }
+        @mixin media-query-desktop {
+          width: 117px;
+          padding: 0 14px;
+        }
       }
-      & input[type="number"]::placeholder {
-        color: var(--color-primary-dark-grayish);
-        opacity: 1;
-      }
+    }
+
+    @mixin media-query-desktop {
+      width: 379px;
+      height: 388px;
+      margin-top: 13px;
+      margin-left: 16px;
+      flex: 1;
+      gap: 40px;
     }
   }
 
@@ -205,7 +231,39 @@ header {
       &:focus {
         background-color: var(--color-primary-light);
       }
+      &:disabled {
+        background-color: #0d686d;
+        opacity: 0.35;
+      }
     }
+
+    @mixin media-query-desktop {
+      width: 413px;
+      padding: 40px;
+
+      & table {
+        margin-top: 0;
+        & tbody tr {
+          &:last-child {
+            margin-top: 25px;
+          }
+        }
+        & .amount {
+          font-size: 48px;
+          letter-spacing: -1px;
+        }
+      }
+      & button {
+        margin-top: 122px;
+      }
+    }
+  }
+
+  @mixin media-query-desktop {
+    width: 920px;
+    flex-direction: row;
+    border-radius: 25px;
+    gap: 48px;
   }
 }
 
