@@ -10,6 +10,7 @@
   --color-primary-grayish: hsl(184, 14%, 56%);
   --color-primary-light-grayish: hsl(185, 41%, 84%);
   --color-primary-very-light-grayish: hsl(189, 41%, 97%);
+  --color-error: #e17457;
   --font-size: 16px;
   --font-family: "Space Mono", monospace;
   --font-weight: 700;
@@ -35,6 +36,8 @@ label {
   display: block;
   font-size: 16px;
   color: var(--color-primary-dark-grayish);
+  display: flex;
+  justify-content: space-between;
 }
 
 input[type="number"] {
@@ -51,17 +54,14 @@ input[type="number"] {
     color: var(--color-primary-grayish);
   }
 
-  /* Chrome, Safari, Edge, Opera */
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  /* Firefox */
-  -moz-appearance: textfield;
+  @mixin remove-number-input-arrows;
 
   &:focus {
     outline: 2px solid var(--color-primary);
+  }
+
+  &.error {
+    border: 2px solid var(--color-error);
   }
 }
 
@@ -83,17 +83,8 @@ button {
     background-color: var(--color-primary);
     color: var(--color-primary-very-dark);
   }
-  &.secondary-btn {
-    background-color: var(--color-primary);
-    color: var(--color-primary-very-dark);
-    font-size: 20px;
-    text-transform: uppercase;
-    &:hover,
-    &:focus {
-      background-color: var(--color-primary-light);
-    }
-  }
 }
+
 main {
   width: 100%;
 }
@@ -128,6 +119,13 @@ header {
         position: absolute;
         bottom: calc(var(--input-height) / 2 - var(--icon-height) / 2);
         left: 20px;
+      }
+
+      & .error-text {
+        display: none;
+        &.active {
+          color: var(--color-error);
+        }
       }
     }
 
@@ -199,6 +197,14 @@ header {
 
     & button {
       margin-top: 32px;
+      background-color: var(--color-primary);
+      color: var(--color-primary-very-dark);
+      font-size: 20px;
+      text-transform: uppercase;
+      &:hover,
+      &:focus {
+        background-color: var(--color-primary-light);
+      }
     }
   }
 }

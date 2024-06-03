@@ -35,7 +35,10 @@
       <div class="container">
         <form action="#" class="form card__tip-calculator" novalidate>
           <div class="form__group form__group__bill-amount">
-            <label for="id_bill_amount"> Bill </label>
+            <label for="id_bill_amount">
+              <span class="label-text"> Bill </span>
+              <span class="error-text"> </span>
+            </label>
             <input type="number" id="id_bill_amount" placeholder="0" required />
             <img
               src="./assets/images/icon-dollar.svg"
@@ -45,7 +48,10 @@
             />
           </div>
           <div class="form__group form__group__tip-percentage">
-            <label for="id_tip_percentage"> Select Tip % </label>
+            <label for="id_tip_percentage">
+              <span class="label-text"> Select Tip % </span>
+              <span class="error-text"> </span>
+            </label>
             <div class="tip__percentage">
               <button class="tip__button" data-tip="5">5%</button>
               <button class="tip__button" data-tip="10">10%</button>
@@ -60,7 +66,10 @@
             </div>
           </div>
           <div class="form__group form__group__number-of-people">
-            <label for="id_number_of_people"> Number of People </label>
+            <label for="id_number_of_people">
+              <span class="label-text"> Number of People </span>
+              <span class="error-text active">Can't be zero</span>
+            </label>
             <input
               type="number"
               id="id_number_of_people"
@@ -101,7 +110,7 @@
             </tbody>
           </table>
 
-          <button class="tip__result__reset-btn secondary-btn">Reset</button>
+          <button class="tip__result__reset-btn">Reset</button>
         </div>
       </div>
     </main>
