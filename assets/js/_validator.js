@@ -14,6 +14,7 @@ export default class Validator {
     const isRequired = this.inputEl.required;
     const minInputValue = Number(this.inputEl.min);
     const maxInputValue = Number(this.inputEl.max);
+    const dataType = this.inputEl.dataset.type;
     if (isRequired && !inputValue) {
       return {
         valid: false,
@@ -29,6 +30,16 @@ export default class Validator {
         message: `Can't be ${
           Number(inputValue) === 0 ? "zero" : Number(inputValue)
         }`,
+      };
+    }
+    if (
+      inputValue &&
+      dataType === "int" &&
+      !Number.isInteger(Number(inputValue))
+    ) {
+      return {
+        valid: false,
+        message: `Can't be ${Number(inputValue)}`,
       };
     }
     return {

@@ -41,7 +41,7 @@ export default class TipCalculator {
     };
     this.form.reset();
     this.resetActiveFixedTipButton();
-    this.updateTipResult(true);
+    this.resetTipResult();
   }
 
   calculateTip() {
@@ -56,14 +56,20 @@ export default class TipCalculator {
       this.calculatorResult.totalAmount / numberOfPeople;
   }
 
-  updateTipResult(reset = false) {
+  updateTipResult() {
     this.tipAmountTd.textContent = this.currencyFormat(
       this.calculatorResult.tipAmountPerPerson
     );
     this.totalAmountTd.textContent = this.currencyFormat(
       this.calculatorResult.totalAmountPerPerson
     );
-    this.resetButton.disabled = reset;
+    this.resetButton.disabled = false;
+  }
+
+  resetTipResult() {
+    this.tipAmountTd.textContent = this.currencyFormat(0);
+    this.totalAmountTd.textContent = this.currencyFormat(0);
+    this.resetButton.disabled = true;
   }
 
   registerListeners() {
@@ -130,6 +136,7 @@ export default class TipCalculator {
     const validationResult = validator.validate();
     if (!validationResult.valid) {
       this.showInputError(e.target, validationResult.message);
+      this.resetTipResult();
     } else {
       this.calculatorInput.billAmount = Number(e.target.value);
       if (this.isCalculatorInputValid()) {
@@ -150,6 +157,7 @@ export default class TipCalculator {
     const validationResult = validator.validate();
     if (!validationResult.valid) {
       this.showInputError(e.target, validationResult.message);
+      this.resetTipResult();
     } else {
       this.calculatorInput.tipPercentage = Number(e.target.value);
       if (this.isValidForm()) {
@@ -182,6 +190,7 @@ export default class TipCalculator {
     const validationResult = validator.validate();
     if (!validationResult.valid) {
       this.showInputError(e.target, validationResult.message);
+      this.resetTipResult();
     } else {
       this.calculatorInput.numberOfPeople = Number(e.target.value);
       if (this.isCalculatorInputValid()) {
