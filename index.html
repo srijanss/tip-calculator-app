@@ -34,11 +34,17 @@
       </header>
       <div class="container">
         <form action="#" class="form card__tip-calculator" novalidate>
-          <div class="form__group">
+          <div class="form__group form__group__bill-amount">
             <label for="id_bill_amount"> Bill </label>
-            <input type="number" id="id_bill_amount" placeholder="0" />
+            <input type="number" id="id_bill_amount" placeholder="0" required />
+            <img
+              src="./assets/images/icon-dollar.svg"
+              alt="Dollar icon"
+              width="11"
+              heigth="17"
+            />
           </div>
-          <div class="form__group">
+          <div class="form__group form__group__tip-percentage">
             <label for="id_tip_percentage"> Select Tip % </label>
             <div class="tip__percentage">
               <button class="tip__button" data-tip="5">5%</button>
@@ -53,20 +59,48 @@
               />
             </div>
           </div>
-          <div class="form__group">
+          <div class="form__group form__group__number-of-people">
             <label for="id_number_of_people"> Number of People </label>
-            <input type="number" id="id_number_of_people" placeholder="0" />
+            <input
+              type="number"
+              id="id_number_of_people"
+              placeholder="0"
+              required
+            />
+            <img
+              src="./assets/images/icon-person.svg"
+              alt="Dollar icon"
+              width="13"
+              height="16"
+            />
           </div>
         </form>
         <div class="tip__result">
-          <div class="tip__result__group">
-            <div class="tip__result__label">Tip Amount / person</div>
-            <div class="tip__result__value">$0.00</div>
-          </div>
-          <div class="tip__result__group">
-            <div class="tip__result__label">Total / person</div>
-            <div class="tip__result__value">$0.00</div>
-          </div>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Amount label</th>
+                <th scope="col">Amount per person</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="main-text"> Tip Amount </span>
+                  <span class="sub-text"> / person </span>
+                </td>
+                <td class="amount tip-amount">$0.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="main-text"> Total </span>
+                  <span class="sub-text"> / person </span>
+                </td>
+                <td class="amount total-amount">$0.00</td>
+              </tr>
+            </tbody>
+          </table>
+
           <button class="tip__result__reset-btn secondary-btn">Reset</button>
         </div>
       </div>

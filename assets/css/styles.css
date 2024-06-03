@@ -13,6 +13,8 @@
   --font-size: 16px;
   --font-family: "Space Mono", monospace;
   --font-weight: 700;
+  --button-height: 48px;
+  --input-height: 48px;
 }
 
 *,
@@ -29,33 +31,25 @@ body {
   background-color: var(--color-primary-light-grayish);
 }
 
-main {
-  width: 100%;
-}
-
-.container {
-  width: 375px;
-  margin: 0 auto;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  background-color: var(--white);
-  padding: 32px;
-}
-
 label {
+  display: block;
   font-size: 16px;
   color: var(--color-primary-dark-grayish);
 }
 
 input[type="number"] {
   width: 100%;
-  height: 48px;
+  height: var(--input-height);
   border-radius: 5px;
   border: none;
   background-color: var(--color-primary-very-light-grayish);
   padding: 0 18px;
   text-align: right;
   font-size: 24px;
+
+  &::placeholder {
+    color: var(--color-primary-grayish);
+  }
 
   /* Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,
@@ -72,8 +66,8 @@ input[type="number"] {
 }
 
 button {
-  width: 146px;
-  height: 48px;
+  width: 100%;
+  height: var(--button-height);
   border-radius: 5px;
   border: none;
   background-color: var(--color-primary-very-dark);
@@ -90,7 +84,6 @@ button {
     color: var(--color-primary-very-dark);
   }
   &.secondary-btn {
-    width: 100%;
     background-color: var(--color-primary);
     color: var(--color-primary-very-dark);
     font-size: 20px;
@@ -98,6 +91,114 @@ button {
     &:hover,
     &:focus {
       background-color: var(--color-primary-light);
+    }
+  }
+}
+main {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0 40px;
+}
+
+.container {
+  width: 375px;
+  margin: 0 auto;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  background-color: var(--white);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  & .card__tip-calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    & .form__group {
+      position: relative;
+
+      & img {
+        --icon-height: 16px;
+        position: absolute;
+        bottom: calc(var(--input-height) / 2 - var(--icon-height) / 2);
+        left: 20px;
+      }
+    }
+
+    & label:not(.form__group__tip-percentage > label) {
+      margin-bottom: 12px;
+    }
+
+    & .form__group__tip-percentage {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      & .tip__percentage {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      & button,
+      & input[type="number"] {
+        width: 146px;
+      }
+      & input[type="number"]::placeholder {
+        color: var(--color-primary-dark-grayish);
+        opacity: 1;
+      }
+    }
+  }
+
+  & .tip__result {
+    border-radius: 15px;
+    background-color: var(--color-primary-very-dark);
+    color: var(--white);
+    padding: 24px;
+
+    & table {
+      width: 100%;
+      margin-top: 16px;
+      & thead {
+        display: none;
+      }
+
+      & tbody tr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:last-child {
+          margin-top: 22px;
+        }
+      }
+      & tbody tr td:first-child {
+        display: flex;
+        flex-direction: column;
+      }
+      & .main-text {
+        font-size: 16px;
+      }
+      & .sub-text {
+        font-size: 13px;
+        color: var(--color-primary-grayish);
+      }
+      & .amount {
+        font-size: 32px;
+        letter-spacing: -0.67px;
+        color: var(--color-primary);
+      }
+    }
+
+    & button {
+      margin-top: 32px;
     }
   }
 }
