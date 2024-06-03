@@ -1,3 +1,3 @@
 import TipCalculator from "./_tip_calculator";
 
-new TipCalculator();
+customElements.define("tip-calculator", TipCalculator, { extends: "section" });

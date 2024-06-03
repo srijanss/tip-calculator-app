@@ -1,11 +1,14 @@
 import Validator from "./_validator";
 
-export default class TipCalculator {
+export default class TipCalculator extends HTMLElement {
   constructor() {
+    self = super();
     this.calculatorResult = null;
     this.calculatorInput = null;
+  }
 
-    this.form = document.querySelector("form[name='tip-calculator']");
+  connectedCallback() {
+    this.form = self.querySelector("form[name='tip-calculator']");
     this.billAmountInput = this.form.querySelector("input[name='bill-amount']");
     this.customTipInput = this.form.querySelector("input[name='custom-tip']");
     this.numberOfPeopleInput = this.form.querySelector(
@@ -13,7 +16,7 @@ export default class TipCalculator {
     );
     this.fixedTipButtons = this.form.querySelectorAll(".tip-button");
 
-    this.tipResultBlock = document.querySelector(".tip-result");
+    this.tipResultBlock = self.querySelector(".tip-result");
     this.tipAmountTd = this.tipResultBlock.querySelector(".tip-amount");
     this.totalAmountTd = this.tipResultBlock.querySelector(".total-amount");
     this.resetButton = this.tipResultBlock.querySelector(

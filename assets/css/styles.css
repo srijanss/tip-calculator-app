@@ -110,6 +110,10 @@ header {
   flex-direction: column;
   gap: 32px;
 
+  .hidden {
+    display: none;
+  }
+
   & .card__tip-calculator {
     display: flex;
     flex-direction: column;
