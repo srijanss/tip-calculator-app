@@ -83,6 +83,11 @@ export default class TipCalculator extends HTMLElement {
       this.clearInputError(this.billAmountInput);
       this.handleBillAmountInput(e);
     });
+    this.billAmountInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+      }
+    });
     this.billAmountInput.addEventListener("focus", (e) =>
       this.clearInputError(this.billAmountInput)
     );
@@ -90,12 +95,22 @@ export default class TipCalculator extends HTMLElement {
       this.clearInputError(this.customTipInput);
       this.handleCustomTipInput(e);
     });
+    this.customTipInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+      }
+    });
     this.customTipInput.addEventListener("focus", (e) =>
       this.clearInputError(this.customTipInput)
     );
     this.numberOfPeopleInput.addEventListener("input", (e) => {
       this.clearInputError(this.numberOfPeopleInput);
       this.handleNumberOfPeopleInput(e);
+    });
+    this.numberOfPeopleInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+      }
     });
     this.numberOfPeopleInput.addEventListener("focus", (e) =>
       this.clearInputError(this.numberOfPeopleInput)
